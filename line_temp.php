@@ -18,9 +18,13 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData['messages'][0]['text'] = "สวัสดี ID คุณคือ ".$arrJson['events'][0]['source']['userId'];
 }else if($arrJson['events'][0]['message']['text'] == "ดี"){
   $arrPostData = array();
+ $temp_id = $arrJson['events'][0]['source']['displayName'];
+ 
+ $ProfileUrl = "https://api.line.me/v2/bot/profile/".$temp_id;
+ 
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "สวัสดี ID คุณคือ ".$arrJson['events'][0]['source']['displayName'];
+  $arrPostData['messages'][0]['text'] = "สวัสดี ID คุณคือ ".$ProfileUrl;
 }else if($arrJson['events'][0]['message']['text'] == "ชื่ออะไร"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
