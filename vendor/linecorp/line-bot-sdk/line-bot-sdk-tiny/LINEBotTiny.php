@@ -129,6 +129,13 @@ class LINEBotTiny
         return json_decode(exec_get('https://api.line.me/v2/bot/profile/'.$userId,$this->channelAccessToken));
        
     }
+    
+    public function profil($displayName)
+    {
+      
+        return json_decode(exec_get('https://api.line.me/v2/bot/profile/'.$displayName,$this->channelAccessToken));
+       
+    }
 }
 
 function exec_get($fullurl,$channelAccessToken)
